@@ -1,0 +1,30 @@
+{
+   "defaultparamtype" : "query-post",
+   "message" : "Data berikut akan dihapus!,<br/>apakah anda yakin mau melanjutkan?",
+   "paramlist" : [
+      {
+         "caption" : "Artikel id",
+         "groupname" : "group_a",
+         "name" : "update_artikel_id",
+         "ptype" : "disable",
+         "visible" : 0
+      },
+      {
+         "caption" : "Judul Konten",
+         "groupname" : "group_a",
+         "name" : "judul_konten_artikel",
+         "ptype" : "disable",
+         "visible" : 1
+      },
+      {
+         "caption" : "tanggal_sunting",
+         "groupname" : "group_a",
+         "name" : "tanggal_sunting",
+         "ptype" : "disable",
+         "visible" : 1
+      }
+   ],
+   "sqldefparam" : "select a.update_artikel_id,b.judul_konten_artikel,a.tanggal_sunting \r\nfrom app_updateartikel_konten a\r\nleft join app_artikelkonten b on a.artikel_konten_id=b.artikel_konten_id\r\n where a.update_artikel_id=:update_artikel_id",
+   "sqlexec" : "delete from app_updateartikel_konten where update_artikel_id=:update_artikel_id",
+   "title" : "Hapus konten"
+}

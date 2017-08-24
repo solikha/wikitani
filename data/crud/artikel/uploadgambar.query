@@ -1,0 +1,30 @@
+{
+   "defaultparamtype" : "query-post",
+   "paramlist" : [
+      {
+         "caption" : "artikel_id",
+         "groupname" : "group_a",
+         "name" : "artikel_id",
+         "ptype" : "text",
+         "visible" : 1
+      },
+      {
+         "caption" : "Nama",
+         "groupname" : "group_a",
+         "name" : "nama",
+         "ptype" : "text",
+         "visible" : 1
+      },
+      {
+         "caption" : "Upload Foto",
+         "groupname" : "group_a",
+         "name" : "file",
+         "ptype" : "disable",
+         "visible" : 1,
+         "xtype" : "file"
+      }
+   ],
+   "sqldefparam" : "select a.artikel_id,a.judul_artikel,a.deskripsi,b.nama_kategori,c.subkategori_nama from app_artikel a\r\nleft join app_kategori b on a.kategori_id=b.kategori_id\r\nleft join app_subkategori c on a.subkategori_id=c.subkategori_id\r\nwhere a.artikel_id=:artikel_id",
+   "sqlexec" : "insert into app_artikel_attch(artikel_id,fileid)values(:artikel_id,:file_id)\r\n\r\n",
+   "title" : "Upload Gambar Artikel"
+}

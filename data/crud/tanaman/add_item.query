@@ -1,0 +1,24 @@
+{
+   "defaultparamtype" : "query-post",
+  "paramlist" : [
+    {
+         "caption" : "Judul Tanaman",
+         "groupname" : "group_a",
+         "name" : "tanaman_nama",
+         "ptype" : "text",
+         "visible" : 1
+      }
+	  ,      
+	  {
+         "caption" : "Komoditi",
+         "groupname" : "group_a",
+         "name" : "nama",
+         "ptype" : "lookup",
+		 "lookupname":"komoditi",
+         "visible" : 1
+      }
+   ],
+   "sqldefparam" : "select 0;",
+   "sqlexec1" : "insert into app_kategori (nama_kategori,deskripsi)values(:namakategori,:deskripsi);",
+   "title" : "Tambah Data Komoditi"
+}

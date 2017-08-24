@@ -1,0 +1,77 @@
+{
+   "actions" : [
+      {
+         "action" : "add_item",
+         "caption" : "Tambah Data Tanaman",
+         "icon" : "fa  fa-plus",
+         "modalwidth" : 600,
+         "name" : "add",
+         "type" : "act-add"
+      }
+   ],
+   "defaultparamtype" : "query-get",
+   "fieldlist" : [
+      {
+         "btype" : "text",
+         "caption" : "No",
+         "etype" : "text",
+         "name" : "rnum"
+      },
+      {
+         "btype" : "text",
+         "caption" : "Nama Tanaman",
+         "etype" : "text",
+         "name" : "tanaman_nama"
+      },
+      {
+         "btype" : "text",
+         "caption" : "Komoditi",
+         "etype" : "text",
+         "name" : "komoditi_nama"
+      }
+   ],
+   "paramlist" : [
+      {
+         "caption" : "Search",
+         "groupname" : "group_a",
+         "name" : "textsearch",
+         "ptype" : "text"
+      },
+      {
+         "caption" : "Pagerec",
+         "name" : "pagerec",
+         "ptype" : "hidden",
+         "value" : 5
+      },
+      {
+         "caption" : "Pagenum",
+         "name" : "pagenum",
+         "ptype" : "hidden",
+         "value" : 1
+      }
+   ],
+   "rowactions" : {
+      "caption" : "Actions",
+      "list" : [
+         {
+            "hint" : "edit",
+            "modalwidth" : 600,
+            "name" : "edit",
+            "type" : "ra-delete"
+         },
+         {
+            "hint" : "edit",
+            "modalwidth" : 600,
+            "name" : "edit",
+            "type" : "ra-edit"
+         }
+      ],
+      "position" : "right",
+      "tdoptions" : "width=\"100px\"",
+      "width" : "300"
+   },
+   "show_search_btn" : 1,
+   "sql" : "select row_number() OVER () as rnum, a.tanaman_nama,b.komoditi_nama from app_tanaman a\r\nleft join  app_komoditi b on a.komoditi_id= b.komoditi_id\r\nlimit :pagerec offset (:pagerec * (:pagenum-1))\r\n",
+   "sqlcount" : "select count (*)\r\n from app_tanaman  a\r\n",
+   "title" : "Data Tanaman"
+}
